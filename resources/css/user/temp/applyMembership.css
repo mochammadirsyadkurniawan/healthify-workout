@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' ,sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+p {
+    font-weight: 300;
+    color: #111;
+}
+
+body {
+    min-height: 1000px;
+    overflow: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+/* header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header.sticky {
+    background-color: #fff;
+    padding: 15px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+header img {
+    height: 50px;
+    padding: 5px;
+}
+
+header .navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+header .navigation li {
+    list-style-type: none;
+    margin-left: 30px;
+}
+
+header .navigation li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+header .navigation li a:hover {
+    color: #ff9000;
+    transition: 0.5s;
+}
+
+header.sticky .navigation li a {
+    color: #0D5EAD;
+    font-weight: 600;
+}
+
+header.sticky .navigation li a:hover {
+    color: #ff9000;
+    transition: 0.5s;
+}
+
+header .navigation .btn {
+    font-weight: bolder;
+    margin-top: -15px;
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+
+#btnLogin {
+    background-color: #fff;
+    color: #0D5EAD;
+    border: 2.5px solid #0D5EAD;
+}
+
+#btnRegister {
+    background-color: #0D5EAD;
+    color: #fff;
+    border: 2.5px solid #fff;
+}
+
+#btnLogin:hover, #btnRegister:hover {
+    letter-spacing: 2.5px;
+    background-color: #ff9000;
+}
+
+header.sticky #btnLogin {
+    color: #fff;
+    background-color: #ff9000;
+}
+
+header.sticky #btnLogin:hover {
+    color: #fff;
+    background-color: #0D5EAD;
+    border: 2px solid #ff9000;
+}
+
+header.sticky #btnRegister {
+    color: #fff;
+    border: 2.5px solid #ff9000;
+}
+
+/* User Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    color: #fff;
+    gap: 8px;
+}
+
+.dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-toggle i.fa-user-circle {
+    font-size: 22px;
+    margin-right: 1px;
+}
+
+.dropdown-toggle i.fa-chevron-down {
+    margin-left: 1px; /* Menambah jarak antara nama user dan ikon dropdown */
+}
+
+header.sticky .dropdown-toggle i.fa-user-circle a {
+    color: #ff9000;
+}
+
+header.sticky .dropdown-menu li a {
+    color: #fff;
+}
+
+header.sticky i.fa-user {
+    color: #fff;
+}
+
+header.sticky i.fa-sign-out-alt {
+    color: #fff;
+}
+
+header.sticky .dropdown-menu a {
+    color: #fff;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    list-style: none;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
+.dropdown-menu li a.text,
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dropdown-menu li a, .logout-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #c82333;
+    font-size: 14px;
+    padding: 10px 15px;
+    width: 100%;
+    background: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.dropdown-menu li a.text:hover {
+    color: #ff9000;
+    transition: 0.2 ease;
+    font-weight: 600;
+    width: 100%;
+}
+header.sticky nav .dropdown-menu li a.text:hover {
+    color: #ff9000;
+    transition: 0.3 ease;
+    font-weight: 600;
+}
+
+
+header.sticky nav .dropdown .dropdown-menu {
+    background-color: #0D5EAD;
+}
+/* mengatur margin icon icon pada saat dropdown di klik */
+
+/*  */
+.logout-btn:hover {
+    transition: 0.3 ease;
+    color: red;
+    font-weight: 600;
+}
+
+.dropdown-menu li i {
+    /* margin-right: 8px; */
+    font-size: 16px;
+    color: #0D5EAD;
+    color: #111;
+}
+
+.dropdown-menu li a.text {
+    color: #0D5EAD;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px 50px;
+    }
+
+    header.sticky {
+        padding: 10px 50px;
+    }
+
+    .dropdown-menu {
+        right: auto;
+        left: 0;
+    }
+}
+/* end of dropdown css */
+
+
+/* .applyMembership {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../../../public/images/bg-applyMembership.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.applyMembership::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+} */
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.trainer-container {
+    cursor: grab;
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+.trainer-container.active {
+    cursor: grabbing;
+}
+
+.trainer-img {
+    transition: transform 0.2s ease;
+}
+
+.trainer-img:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+/* mobile resize */
+@media(max-width:991px) {
+
+    /* header */
+    header,
+    header.sticky {
+        padding: 10px 20px;
+    }
+
+    /* filter invert */
+    header.sticky .menuToggle {
+        filter: invert(1);
+        /* untuk membalikkan nilai negatif
+        warna dasar putih dibalik jadi warna hitam */
+    }
+
+    header .navigation {
+        display: none;
+    }
+
+    /* Munculkan menu setelah active */
+    header .navigation.active {
+        width: 100%;
+        height: calc(100% - 70px);
+        /* calc artinya kita bisa menggunakan operator aritmatika didalamahnya
+        kali , bagi , kurang, tambah dll */
+        background-color: #fff;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    header .navigation li {
+        margin-left: 0;
+    }
+
+    header .navigation li a {
+        color: #111;
+        font-size: 2em;
+    }
+
+    /* munculkan menutoggle */
+    .menuToggle {
+        position: relative;
+        height: 40px;
+        width: 40px;
+        /* background-image: url(assets/menu.png); */
+        background-image: url("../../assets/menu.png");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    /* munculkan button exit */
+    .menuToggle.active {
+        /* background-image: url(assets/close.png); */
+        background-image: url("../../assets/close.png");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .banner .content h2 {
+        font-size: 3em;
+    }
+}
+
+@media(max-width:480px) {
+    .banner .content h2 {
+        font-size: 2em;
+    }
+
+    .row .col50 .imgbox img {
+        background-position: center;
+    }
+}
+
+/* Gaya untuk Tombol Logout */
+.btn-danger {
+    background-color: #dc3545; /* Warna merah untuk tombol */
+    color: #fff; /* Warna teks */
+    border: none; /* Hilangkan border */
+    padding: 1px 5px; /* Padding dalam tombol */
+    font-size: 16px; /* Ukuran font */
+    border-radius: 5px; /* Sudut tombol membulat */
+    cursor: pointer; /* Ubah kursor menjadi pointer */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Animasi saat hover */
+}
+
+/* Efek Hover */
+.btn-danger:hover {
+    background-color: #c82333; /* Warna merah lebih gelap saat hover */
+    transform: scale(1.1); /* Membesarkan tombol */
+}
+
+
+/* footer */
+
+footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.copyright {
+    padding: 10px 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.copyright p {
+    color: #0D5EAD;
+    font-weight: 900;
+}
+
+.copyright a {
+    color: #ff9000;
+    /* font-weight: 100; */
+    text-decoration: none;
+    font-weight: bold;
+
+}
+/* end of footer */

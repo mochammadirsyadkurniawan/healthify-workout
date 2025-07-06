@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+p {
+    font-weight: 300;
+    color: #111;
+}
+
+body {
+    min-height: 1000px;
+    overflow: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+
+
+section {
+    padding: 100px;
+}
+section#profile.about {
+    padding-top: 100px;
+}
+
+section#chatbot {
+    margin: 10px;
+    padding: 50px;
+
+}
+
+#profile.about {
+    margin-top: 100px;
+}
+
+
+/* profile */
+.prof img {
+    transition: transform 0.5s ease-in-out;
+}
+/* Animasi transisi ketika transform diterapkan */
+
+.prof img:hover,
+.prof img:active {
+    transform: scale(1.1);
+}
+
+.box {
+    transition: transform 0.3s ease-in-out;
+}
+
+.box:hover,
+.box:active {
+    transform: scale(1.1);
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row .col50 {
+    position: relative;
+    width: 48%;
+}
+
+.title-text {
+    color: #0D5EAD;
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.row .col50 .imgbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.row .col50 .imgbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* end of profile */
+
+section#contact{
+    background-color: black;
+}
+
+/* end of prestasi */
+footer {
+    background-color: black;
+}
+
+/* contact */
+#contact {
+    padding: 50px 0;
+    background-color: #efefef;
+}
+
+.form-control {
+    border: none !important;
+}
+
+.info-box {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info-box .fa-solid,
+.info-box .fa-brands {
+    color: #ff9000;
+    margin: 3px;
+    cursor: pointer;
+}
+
+#contact {
+    /* margin-top: 2px; */
+    padding-top: 170px;
+}
+
+/* section#contact {
+    height: 100vh;
+} */
+/* end of contact */
+
+/* footer */
+
+
+
+
+/* mobile resize */
+@media(max-width:991px) {
+
+
+    .banner .content h2 {
+        font-size: 3em;
+    }
+
+    /* about us */
+    section {
+        padding: 40px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .row .col50 {
+        position: relative;
+        width: 100%;
+    }
+
+    .row .col50 .title-text,
+    .row .col50 p {
+        text-align: center;
+    }
+
+    .row .col50 .imgbox {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        margin-top: 20px;
+    }
+
+    /* Urutan konten About Us diubah saat mobile */
+    #profile .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Pastikan teks (judul + paragraf) muncul duluan */
+    #profile .col50:nth-child(1) {
+        order: 1; /* tampil pertama */
+    }
+
+    /* Gambar muncul setelah teks */
+    #profile .col50:nth-child(1) {
+        order: 2; /* tampil kedua */
+    }
+}
+
+
+
+    @keyframes spin-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+    }
+
+    .hover-spin {
+    transition: all 0.2s ease-in-out;
+    }
+
+    .hover-spin:hover i {
+    animation: spin-horizontal 0.5s linear;
+    color: white !important;
+    }
+
+
+
+/* scrollbar notifikasi */
+/* Hide horizontal scrollbar, keep vertical scrollbar clean */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #d1d5db transparent;
+    /* thumb color and track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+    /* vertical scrollbar width */
+    height: 0px;
+    /* HIDE horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    /* thumb color */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    /* track background */
+}
+
